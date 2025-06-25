@@ -32,6 +32,11 @@ def default_compute_score(data_source, solution_str, ground_truth, extra_info=No
     Raises:
         NotImplementedError: If the reward function is not implemented for the given data source.
     """
+    if data_source == "cyrilzakka/ecg_r1_data":
+        from . import ecgr1
+        res = ecgr1.compute_score(solution_str, ground_truth)
+
+
     if data_source == "openai/gsm8k":
         from . import gsm8k
 
