@@ -36,8 +36,7 @@ def default_compute_score(data_source, solution_str, ground_truth, extra_info=No
         from . import ecgr1
         res = ecgr1.compute_score(solution_str, ground_truth)
 
-
-    if data_source == "openai/gsm8k":
+    elif data_source == "openai/gsm8k":
         from . import gsm8k
 
         res = gsm8k.compute_score(solution_str, ground_truth)
