@@ -233,11 +233,9 @@ class RLHFDataset(Dataset):
                 images = None
                 if self.image_key in row_dict:
                     image_dict = row_dict.pop(self.image_key)
-                    pil_image = Image.open(io.BytesIO(image_dict['bytes']))
-                    images = [process_image(pil_image)]
-                    row_dict['multi_modal_data'] = {'image': images}
+                    images = [process_image(image_dict)]
                     # images = [process_image(image) for image in row_dict.pop(self.image_key)]
-                    # multi_modal_data["image"] = images
+                    multi_modal_data["image"] = images
 
                 videos = None
                 if self.video_key in row_dict:
