@@ -24,6 +24,8 @@ from omegaconf import OmegaConf
 
 from verl.trainer.ppo.ray_trainer import RayPPOTrainer
 from verl.trainer.ppo.reward import load_reward_manager
+import torch.multiprocessing
+torch.multiprocessing.set_sharing_strategy('file_system')
 
 
 @hydra.main(config_path="config", config_name="ppo_trainer", version_base=None)
